@@ -7,5 +7,10 @@ render(
   <div>
     <Counter />
   </div>,
-  appRoot
+  appRoot,
+  appRoot.lastChild
 );
+
+if (module.hot) {
+  module.hot.accept();
+}
