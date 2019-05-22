@@ -1,0 +1,56 @@
+{
+  "name": "notes-app-ui",
+  "version": "1.0.0",
+  "description": "Notes app",
+  "main": "index.js",
+  "repository": "https://github.com/RahulNagaraj/notes-app-ui.git",
+  "author": "Rahul N <rahul.nagarajmv@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "parcel serve ./public/index.html --open",
+    "build": "parcel build public/index.html",
+    "lint": "eslint src/ -f table"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md,css,html}": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ],
+    "yarn.lock": [
+      "git rm --cached"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-classes": "^7.4.4",
+    "@babel/plugin-transform-destructuring": "^7.4.4",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.4.5",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.17.1"
+  },
+  "dependencies": {
+    "preact": "^8.4.2"
+  }
+}
