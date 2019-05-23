@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import React, { Component } from 'react';
 
 export default class Counter extends Component {
   state = {
@@ -24,10 +24,11 @@ export default class Counter extends Component {
         {counter}
         <br />
         <button type="button" onClick={this.increment}>
-          + INCREMENT
+          INCREMENT
         </button>
+        &nbsp;
         <button type="button" onClick={this.decrement}>
-          - DECREMENT
+          DECREMENT
         </button>
       </div>
     );

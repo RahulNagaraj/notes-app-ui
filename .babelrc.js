@@ -7,11 +7,5 @@ module.exports = {
         loose: true,
       },
     ],
-    [
-      '@babel/plugin-transform-react-jsx',
-      {
-        pragma: 'h',
-      },
-    ],
   ],
 };
