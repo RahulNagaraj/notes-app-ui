@@ -1,2 +1,3 @@
 # notes-app-ui
-A notes app built using preact
+
+A notes app built using React

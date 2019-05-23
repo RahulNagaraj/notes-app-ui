@@ -7,6 +7,12 @@
   "author": "Rahul N <rahul.nagarajmv@gmail.com>",
   "license": "MIT",
   "private": true,
+  "keywords": [
+    "React",
+    "Redux",
+    "Redux Saga",
+    "Parcel"
+  ],
   "scripts": {
     "dev": "parcel serve ./public/index.html --open",
     "build": "parcel build public/index.html",
@@ -41,11 +47,14 @@
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
     "parcel-bundler": "^1.12.3",
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "redux-immutable-state-invariant": "^2.1.0"
   },
   "dependencies": {
     "react": ">=15",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0"
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.2"
   }
 }
