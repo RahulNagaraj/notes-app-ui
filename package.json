@@ -51,6 +51,7 @@
     "redux-immutable-state-invariant": "^2.1.0"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": ">=15",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { actions as counterActions } from './duck';
 
 class Counter extends Component {
@@ -32,20 +33,25 @@ class Counter extends Component {
   }
 }
 
+Counter.propTypes = {
+  counterValue: PropTypes.number.isRequired,
+  incrementAction: PropTypes.func.isRequired,
+  decrementAction: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({
   counterValue: state.counter.counterValue,
 });
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      incrementAction: counterActions.increment,
-      decrementAction: counterActions.decrement,
-    },
-    dispatch
-  );
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {
+    incrementAction: counterActions.increment,
+    decrementAction: counterActions.decrement,
+  },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Counter);

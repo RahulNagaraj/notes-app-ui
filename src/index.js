@@ -8,16 +8,15 @@ import Counter from './counter/counter';
 const appRoot = document.getElementById('root');
 const store = configureStore();
 
-const App = () =>
-  render(
-    <div>
-      <Provider store={store}>
-        <BrowserRouter>
-          <Counter />
-        </BrowserRouter>
-      </Provider>
-    </div>,
-    appRoot
-  );
+const App = () => render(
+  <div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Counter />
+      </BrowserRouter>
+    </Provider>
+  </div>,
+  appRoot,
+);
 
 App();

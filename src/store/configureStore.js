@@ -7,24 +7,20 @@ import rootReducer from '../reducers';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const configureStoreProd = initialState => {
+const configureStoreProd = (initialState) => {
   const middlewares = [
     // Add other middleware on this line...
     sagaMiddleware,
   ];
 
-  const store = createStore(
-    rootReducer,
-    initialState,
-    compose(applyMiddleware(...middlewares))
-  );
+  const store = createStore(rootReducer, initialState, compose(applyMiddleware(...middlewares)));
 
   sagaMiddleware.run(rootSaga);
 
   return store;
 };
 
-const configureStoreDev = initialState => {
+const configureStoreDev = (initialState) => {
   const middlewares = [
     // Add other middleware on this line...
 
@@ -37,21 +33,17 @@ const configureStoreDev = initialState => {
 
   // add support for Redux dev tools
   // eslint-disable-next-line no-underscore-dangle
-  const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeEnhancers(applyMiddleware(...middlewares)),
   );
 
   // sagaMiddleware.run(rootSaga);
   return store;
 };
 
-const configureStore =
-  process.env.NODE_ENV === 'production'
-    ? configureStoreProd
-    : configureStoreDev;
+const configureStore = process.env.NODE_ENV === 'production' ? configureStoreProd : configureStoreDev;
 
 export default configureStore;
