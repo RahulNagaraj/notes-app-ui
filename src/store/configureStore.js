@@ -41,7 +41,13 @@ const configureStoreDev = (initialState) => {
   );
 
   // sagaMiddleware.run(rootSaga);
-  return store;
+  // Hack for HMR for Redux-Parcel
+  if (!window.store) {
+    window.store = store;
+    return window.store;
+  }
+  window.store.replaceReducer(rootReducer);
+  return window.store;
 };
 
 const configureStore = process.env.NODE_ENV === 'production' ? configureStoreProd : configureStoreDev;

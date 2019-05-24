@@ -19,4 +19,8 @@ const App = () => render(
   appRoot,
 );
 
+if (module.hot) {
+  module.hot.accept();
+}
+
 App();

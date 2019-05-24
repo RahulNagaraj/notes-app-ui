@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { actions as counterActions } from './duck';
+import { actions as counterActions, selectors as counterSelectors } from './duck';
 
 class Counter extends Component {
   increment = () => {
@@ -26,7 +26,7 @@ class Counter extends Component {
         </button>
         &nbsp;
         <button type="button" onClick={this.decrement}>
-          DECREMENT
+          - DECREMENT
         </button>
       </div>
     );
@@ -40,7 +40,7 @@ Counter.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  counterValue: state.counter.counterValue,
+  counterValue: counterSelectors.getCounterValue(state),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
