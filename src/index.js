@@ -1,26 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import Root from './root';
 import configureStore from './store/configureStore';
-import Counter from './counter/counter';
 
 const appRoot = document.getElementById('root');
 const store = configureStore();
 
-const App = () => render(
-  <div>
-    <Provider store={store}>
-      <BrowserRouter>
-        <Counter />
-      </BrowserRouter>
-    </Provider>
-  </div>,
-  appRoot,
-);
+const RootApp = () => render(<Root store={store} />, appRoot);
 
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept(RootApp);
 }
 
-App();
+RootApp();
