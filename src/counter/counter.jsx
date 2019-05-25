@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Add, Remove } from '@material-ui/icons';
 import { actions as counterActions, selectors as counterSelectors } from './duck';
 
 class Counter extends Component {
@@ -23,13 +23,13 @@ class Counter extends Component {
         {counterValue}
         <br />
         <button type="button" onClick={this.increment}>
-          <FontAwesomeIcon icon="plus" />
-          <span style={{ margin: '0 5px' }}>INCREMENT</span>
+          <Add />
+          <span>INCREMENT</span>
         </button>
         &nbsp;
         <button type="button" onClick={this.decrement}>
-          <FontAwesomeIcon icon="minus" />
-          <span style={{ margin: '0 5px' }}>DECREMENT</span>
+          <Remove />
+          <span>DECREMENT</span>
         </button>
       </div>
     );

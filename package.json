@@ -51,12 +51,14 @@
     "redux-immutable-state-invariant": "^2.1.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.18",
-    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-7",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/icons": "^4.0.0",
+    "clsx": "^1.0.4",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "react": ">=15",
+    "react": "16.x",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
