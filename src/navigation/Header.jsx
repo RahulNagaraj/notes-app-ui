@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Proptypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   AppBar,
@@ -9,6 +10,7 @@ import {
   Menu,
   MenuItem,
   Badge,
+  CssBaseline,
 } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -80,7 +82,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header = () => {
+const Header = (props) => {
+  const { children } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -152,64 +155,73 @@ const Header = () => {
   );
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            edge="start"
-            color="inherit"
-            aria-label="Open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className={classes.title} variant="h5" noWrap>
-            Notes
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search..."
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputField,
-              }}
-            />
-          </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+    <Fragment>
+      <CssBaseline />
+      <div className={classes.grow}>
+        <AppBar position="static">
+          <Toolbar>
             <IconButton
-              edge="end"
-              aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              className={classes.menuButton}
+              edge="start"
               color="inherit"
+              aria-label="Open drawer"
             >
-              <AccountCircle />
+              <MenuIcon />
             </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton aria-haspopup="true" color="inherit" onClick={handleMobileMenuOpen}>
-              <MoreIcon />
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
-      {renderMenu}
-      {renderMobileMenu}
-    </div>
+            <Typography className={classes.title} variant="h5" noWrap>
+              Notes
+            </Typography>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search..."
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputField,
+                }}
+              />
+            </div>
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+              <IconButton color="inherit">
+                <Badge badgeContent={4} color="secondary">
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+              <IconButton color="inherit">
+                <Badge badgeContent={17} color="secondary">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                edge="end"
+                aria-owns={isMenuOpen ? 'material-appbar' : undefined}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            </div>
+            <div className={classes.sectionMobile}>
+              <IconButton aria-haspopup="true" color="inherit" onClick={handleMobileMenuOpen}>
+                <MoreIcon />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+        {renderMenu}
+        {renderMobileMenu}
+      </div>
+      <main>{children}</main>
+    </Fragment>
   );
 };
+
+Header.propTypes = {
+  children: Proptypes.node.isRequired,
+};
+
 export default Header;
