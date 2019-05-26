@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
-import {
-  Box, Container, Typography, makeStyles,
-} from '@material-ui/core';
+import { Container, Typography, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   headerTitle: {
